@@ -28,6 +28,11 @@ class HomePage extends StatelessWidget {
     Icon(Icons.emoji_events, color: Colors.white, size: 30),
   ];
 
+  List imgList = ['flutter', 'react', 'python', 'c#'];
+
+  List courseName = ["Flutter", "React Native", "Python", "C#"];
+
+  List vidCount = ["55 Videos", "30 Videos", "40 Videos", "38 Videos"];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -134,11 +139,85 @@ class HomePage extends StatelessWidget {
                     );
                   },
                 ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Courses",
+                      style: TextStyle(
+                        fontSize: 23,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    Text("See All",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                          color: Color.fromARGB(255, 177, 74, 255),
+                        ))
+                  ],
+                ),
+                SizedBox(height: 10),
+                GridView.builder(
+                  itemCount: imgList.length,
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    childAspectRatio:
+                        (MediaQuery.of(context).size.height - 50 - 25) /
+                            (4 * 240),
+                    mainAxisSpacing: 10,
+                    crossAxisSpacing: 10,
+                  ),
+                  itemBuilder: (context, index) {
+                    return InkWell(
+                      onTap: () {},
+                      child: Container(
+                        padding:
+                            EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Color.fromARGB(255, 232, 193, 244)),
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.all(10),
+                              child: Image.asset(
+                                "images/${imgList[index]}.png",
+                                width: 100,
+                                height: 100,
+                              ),
+                            ),
+                            SizedBox(height: 10),
+                            Text(
+                              courseName[index],
+                              style: TextStyle(
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.black.withOpacity(0.6)),
+                            ),
+                            SizedBox(height: 10),
+                            Text(
+                              vidCount[index],
+                              style: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.black.withOpacity(0.5)),
+                            )
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                )
               ],
             ),
           )
         ],
       ),
+
+      
     );
   }
 }
