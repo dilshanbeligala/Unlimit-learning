@@ -1,3 +1,4 @@
+import 'package:education_app/screens/course_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -28,11 +29,10 @@ class HomePage extends StatelessWidget {
     Icon(Icons.emoji_events, color: Colors.white, size: 30),
   ];
 
-  List imgList = ['flutter', 'react', 'python', 'c#'];
+  List imgList = ['Flutter', 'React Native', 'Python', 'C#'];
 
   List courseName = ["Flutter", "React Native", "Python", "C#"];
 
-  List vidCount = ["55 Videos", "30 Videos", "40 Videos", "38 Videos"];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -172,7 +172,14 @@ class HomePage extends StatelessWidget {
                   ),
                   itemBuilder: (context, index) {
                     return InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  CourseScreen(imgList[index]),
+                            ));
+                      },
                       child: Container(
                         padding:
                             EdgeInsets.symmetric(vertical: 20, horizontal: 10),
@@ -199,7 +206,7 @@ class HomePage extends StatelessWidget {
                             ),
                             SizedBox(height: 10),
                             Text(
-                              vidCount[index],
+                              "55 Videos",
                               style: TextStyle(
                                   fontSize: 15,
                                   fontWeight: FontWeight.w500,
@@ -217,6 +224,7 @@ class HomePage extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
+        showUnselectedLabels: true,
         showSelectedLabels: true,
         iconSize: 32,
         selectedItemColor: Color.fromARGB(255, 177, 74, 255),
