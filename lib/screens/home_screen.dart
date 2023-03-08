@@ -216,8 +216,21 @@ class HomePage extends StatelessWidget {
           )
         ],
       ),
-
-      
+      bottomNavigationBar: BottomNavigationBar(
+        showSelectedLabels: true,
+        iconSize: 32,
+        selectedItemColor: Color.fromARGB(255, 177, 74, 255),
+        selectedFontSize: 18,
+        unselectedItemColor: Colors.grey,
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.assessment), label: 'Courses'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.favorite), label: 'Wishlist'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Account'),
+        ],
+      ),
     );
   }
 }
