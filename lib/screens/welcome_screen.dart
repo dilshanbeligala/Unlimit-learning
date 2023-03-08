@@ -1,3 +1,4 @@
+import 'package:education_app/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class welcomeScreen extends StatelessWidget {
@@ -80,7 +81,12 @@ class welcomeScreen extends StatelessWidget {
                       color: Color.fromARGB(255, 177, 74, 255),
                       borderRadius: BorderRadius.circular(10),
                       child: InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => HomePage()));
+                        },
                         child: Container(
                           padding: EdgeInsets.symmetric(
                               vertical: 15, horizontal: 80),
